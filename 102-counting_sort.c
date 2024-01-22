@@ -10,20 +10,20 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-    unsigned int i = 0;
+    unsigned int i;
     char *p;
 
     if (nmemb == 0 || size == 0)
-        return (NULL);  // Return NULL instead of '\0'
-    
+        return NULL;
+
     p = malloc(nmemb * size);
     if (p == NULL)
-        return (NULL);
+        return NULL;
 
     for (i = 0; i < (nmemb * size); i++)
         p[i] = '\0';
 
-    return (p);
+    return p;
 }
 
 /**
@@ -33,7 +33,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
  */
 void counting_sort(int *array, size_t size)
 {
-    int index, maximun = 0, *counter = NULL, *tmp = NULL;  // Initialize pointers to NULL
+    int index, maximun = 0, *counter = NULL, *tmp = NULL;
     size_t i;
 
     if (array == NULL || size < 2)
@@ -45,11 +45,11 @@ void counting_sort(int *array, size_t size)
             maximun = array[i];
 
     counter = _calloc(maximun + 1, sizeof(int));
-    tmp = _calloc(size, sizeof(int));  // Allocate size elements, not size + 1
+    tmp = _calloc(size, sizeof(int));
 
     if (counter == NULL || tmp == NULL)
     {
-        free(counter);  // Free any allocated memory before returning
+        free(counter);
         free(tmp);
         return;
     }
