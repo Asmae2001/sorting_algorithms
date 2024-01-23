@@ -1,6 +1,6 @@
 #include "sort.h"
 #include <stdio.h>
-
+#include <stdlib.h>
 /**
  * swap - utility function to swap to integers
  * @a: integer a
